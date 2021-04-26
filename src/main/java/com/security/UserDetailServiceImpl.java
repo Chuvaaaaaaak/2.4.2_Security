@@ -1,4 +1,4 @@
-package com.service;
+package com.security;
 
 import com.dao.UserDAO;
 import org.springframework.security.core.userdetails.UserDetails;

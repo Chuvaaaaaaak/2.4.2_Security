@@ -27,8 +27,14 @@
             <form th:method="DELETE" th:action="@{/admins/{id}(id=${user.getId()})}">
                 <input type="submit" value="Delete(only admin)"/>
             </form>
-
         </td>
+        <td>
+            <a th:href="@{/admins/{id}/edit(id=${user.getId()})}">Edit(only admin)</a>
+        </td>
+
+        <br>
+
+
     </tr>
 </table>
 
@@ -40,6 +46,12 @@
 
 <a href="/admins/new"> Create new user </a>
 
+<br>
+<br>
+<br>
 
+<form th:method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
 </body>
 </html>

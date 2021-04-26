@@ -4,7 +4,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -28,7 +30,7 @@ public class User implements UserDetails  {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "roles_id"))
-    private Set<Role> roles;
+    private Set<Role> roles = new HashSet<>(Arrays.asList(new Role(2L, "ROLE_USER")));
 
     public User(String username, String password, byte age, Set<Role> roles) {
         this.username = username;
